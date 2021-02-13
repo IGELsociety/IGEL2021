@@ -67,8 +67,7 @@
       <ul>
           <li>
             Conference only: regular IGEL members
-            <button id="proceed-button" role="link">Proceed</button>
-            <div id="error-message"></div>
+        
           </li>
       </ul>
 
@@ -83,35 +82,58 @@
 
     </div>
     
+<!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
-    <script>
-      (function () {
-        // initialize Stripe using your publishable key
-        const stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
 
-        // find the button and error message elements
-        const checkoutButton = document.getElementById('proceed-button');
-        const errorMessage = document.getElementById('error-message');
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-price_1IKONwBumtXfaUUqwBIb5wTf"
+  role="link"
+  type="button"
+>
+  Checkout
+</button>
 
-        // on click, send the user to Stripe Checkout to process the donation
-        checkoutButton.addEventListener('click', () => {
-          stripe
-            .redirectToCheckout({
-              items: [{ sku: 'price_1IKONwBumtXfaUUqwBIb5wTf', quantity: 1 }],
-              successUrl: `${window.location.origin}/success.html`,
-              cancelUrl: window.location.origin,
-            })
-            .then(function (result) {
-              if (result.error) {
-                errorMessage.textContent = result.error.message;
-              }
-            });
-        });
-      })();
-    </script>
-    
+<div id="error-message"></div>
 
-    
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1IKONwBumtXfaUUqwBIb5wTf');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKONwBumtXfaUUqwBIb5wTf', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
   </body>
 </html>
 
