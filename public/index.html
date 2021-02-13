@@ -63,6 +63,14 @@
 
     <div class="article-content">
       <p>This is a &ldquo;hello world&rdquo; example website for the <a href="https://github.com/rstudio/blogdown"><strong>blogdown</strong></a> package. The theme was forked from <a href="https://github.com/jrutheiser/hugo-lithium-theme">@jrutheiser/hugo-lithium-theme</a> and modified by <a href="https://github.com/yihui/hugo-lithium">Yihui Xie</a>.</p>
+      
+      <ul>
+          <li>
+            Conference only: regular IGEL members
+            <button id="proceed-button" role="link">Proceed</button>
+            <div id="error-message"></div>
+          </li>
+      </ul>
 
     </div>
   </article>
@@ -75,7 +83,32 @@
 
     </div>
     
-
+<script src="https://js.stripe.com/v3"></script>
++    <script>
++      (function () {
++        // initialize Stripe using your publishable key
++        const stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
++
++        // find the button and error message elements
++        const checkoutButton = document.getElementById('proceed-button');
++        const errorMessage = document.getElementById('error-message');
++
++        // on click, send the user to Stripe Checkout to process the donation
++        checkoutButton.addEventListener('click', () => {
++          stripe
++            .redirectToCheckout({
++              items: [{ sku: 'price_1IKONwBumtXfaUUqwBIb5wTf', quantity: 1 }],
++              successUrl: `${window.location.origin}/success.html`,
++              cancelUrl: window.location.origin,
++            })
++            .then(function (result) {
++              if (result.error) {
++                errorMessage.textContent = result.error.message;
++              }
++            });
++        });
++      })();
++    </script>
     
 
     
