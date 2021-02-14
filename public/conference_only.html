@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.69.2" />
 
 
-<title>A Hugo website</title>
-<meta property="og:title" content="A Hugo website">
+<title>IGEL2021 registration</title>
+<meta property="og:title" content="IGEL2021 registration">
 <meta property="og:type" content="website">
 
 
@@ -15,10 +15,7 @@
 
 
 
-<meta property="description" content="A website built through Hugo and blogdown.">
-
-
-
+<meta property="description" content="IGEL2021 registration">
 
 
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Hugo website" />
@@ -92,7 +89,7 @@
           </li>
           </ul>
           
-          <h2>Training School only (early bird)</h2>
+          <h2>Training School only</h2>
           <ul>
           <li>
             EUR 160 // Paid regular IGEL members (professors, researchers, members of institutions)
@@ -120,14 +117,14 @@
           </li>
       </ul>
       
-      <h2>Conference and Training School (early bird)</h2>
+      <h2>Conference (early bird) and Training School</h2>
           <ul>
           <li>
             EUR 280 // Paid regular IGEL members (professors, researchers, members of institutions)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
-             id="checkout-button280-both-regular"
+             id="checkout-button-280-both-regular"
              role="link"
              type="button"
               >
@@ -193,6 +190,74 @@
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
       lineItems: [{price: 'price_1IKlUVBumtXfaUUqhhPgyHXS', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-160-train-regular');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKlUVBumtXfaUUqdr66WvNv', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-80-train-discount');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKlUVBumtXfaUUqHg3boqeb', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-280-both-regular');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKlUVBumtXfaUUq3vvfLknL', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-130-both-discount');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKlUVBumtXfaUUqpcZRXyxy', quantity: 1}],
       mode: 'payment',
       successUrl: window.location.protocol + '//igelsociety.org/success',
       cancelUrl: window.location.protocol + '//igelsociety.org/canceled',

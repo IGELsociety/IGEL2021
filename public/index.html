@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.69.2" />
 
 
-<title>A Hugo website</title>
-<meta property="og:title" content="A Hugo website">
+<title>IGEL2021 registration</title>
+<meta property="og:title" content="IGEL2021 registration">
 <meta property="og:type" content="website">
 
 
@@ -15,10 +15,7 @@
 
 
 
-<meta property="description" content="A website built through Hugo and blogdown.">
-
-
-
+<meta property="description" content="IGEL2021 registration">
 
 
 <link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Hugo website" />
@@ -64,62 +61,8 @@
     
 
     <div class="article-content">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_zGiasW8vOSOgZGml7W9MEBPDpoo55nFc6f9y-Hnps2t1NA/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScUP3VfVpXW8h2A_OcGGAB7aTUQP0AA3FAKLGkmHJgrLXg5uw/viewform?embedded=true" width="640" height="642" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       
-      <ul>
-          <li>
-            Conference only: regular IGEL members
-            <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-price_1IKONwBumtXfaUUqwBIb5wTf"
-  role="link"
-  type="button"
->
-  Checkout
-</button>
-
-<div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1IKONwBumtXfaUUqwBIb5wTf');
-  checkoutButton.addEventListener('click', function () {
-    /*
-     * When the customer clicks on the button, redirect
-     * them to Checkout.
-     */
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKONwBumtXfaUUqwBIb5wTf', quantity: 1}],
-      mode: 'payment',
-      /*
-       * Do not rely on the redirect to the successUrl for fulfilling
-       * purchases, customers may not always reach the success_url after
-       * a successful payment.
-       * Instead use one of the strategies described in
-       * https://stripe.com/docs/payments/checkout/fulfill-orders
-       */
-      successUrl: window.location.protocol + '//igelsociety.org/success',
-      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        /*
-         * If `redirectToCheckout` fails due to a browser or network
-         * error, display the localized error message to your customer.
-         */
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
-          </li>
-      </ul>
 
     </div>
   </article>
