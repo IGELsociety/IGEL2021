@@ -92,7 +92,7 @@
           </li>
           </ul>
           
-          <h6>Training School only (early bird)</h6>
+          <h2>Training School only (early bird)</h2>
           <ul>
           <li>
             EUR 160 // Paid regular IGEL members (professors, researchers, members of institutions)
@@ -120,7 +120,7 @@
           </li>
       </ul>
       
-      <h6>Conference and Training School (early bird)</h6>
+      <h2>Conference and Training School (early bird)</h2>
           <ul>
           <li>
             EUR 280 // Paid regular IGEL members (professors, researchers, members of institutions)
@@ -188,6 +188,25 @@
       }
     });
   });
+  
+  var checkoutButton = document.getElementById('checkout-button-50-conf-discount');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKlUVBumtXfaUUqhhPgyHXS', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+
+  
 })();
 </script>
 
