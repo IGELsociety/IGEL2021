@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.69.2" />
+
+
+<title>A Hugo website</title>
+<meta property="og:title" content="A Hugo website">
+<meta property="og:type" content="website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+<meta property="description" content="A website built through Hugo and blogdown.">
+
+
+
+
+
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Hugo website" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="https://www.liverpool.ac.uk/english/our-events/igel2021/">Conference page</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+
+
+    <h1 class="article-title">Conference fee for IGEL members</h1>
+
+    <h2 class="article-title">Early bird rates (valid until April 30, 2021)</h2>
+    
+    <h3 class="article-title">Conference only (early bird))</h3>
+
+    <div class="article-content">
+      <ul>
+          <li>
+            Conference only: regular IGEL members
+            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
+            <button
+             style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
+             id="checkout-button-120-conf-regular"
+             role="link"
+             type="button"
+              >
+              Checkout
+              </button>
+          </li>
+      </ul>
+
+    </div>
+  </article>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
+
+  var checkoutButton = document.getElementById('checkout-button-120-conf-regular');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IKlUVBumtXfaUUqAeafGcNA', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//igelsociety.org/success',
+      cancelUrl: window.location.protocol + '//igelsociety.org/canceled',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+</main>
+
+      <footer class="footer">
+  
+      </footer>
+
+    </div>
+  
+  </body>
+</html>
+
