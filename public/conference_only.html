@@ -51,62 +51,6 @@
               </button>
           </li>
           </ul>
-          
-          <h2>Training School only</h2>
-          <ul>
-          <li>
-            EUR 160 // Paid regular IGEL members (professors, researchers, members of institutions)
-            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
-            <button
-             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
-             id="checkout-button-160-train-regular"
-             role="link"
-             type="button"
-              >
-              Checkout
-              </button>
-          </li>
-          <li>
-            EUR 80 // Paid discount IGEL members (students, retirees, and others without regular income)
-            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
-            <button
-             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
-             id="checkout-button-80-train-discount"
-             role="link"
-             type="button"
-              >
-              Checkout
-              </button>
-          </li>
-      </ul>
-      
-      <h2>Conference (early bird) and Training School</h2>
-          <ul>
-          <li>
-            EUR 280 // Paid regular IGEL members (professors, researchers, members of institutions)
-            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
-            <button
-             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
-             id="checkout-button-280-both-regular"
-             role="link"
-             type="button"
-              >
-              Checkout
-              </button>
-          </li>
-          <li>
-            EUR 130 // Paid discount IGEL members (students, retirees, and others without regular income)
-            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
-            <button
-             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
-             id="checkout-button-130-both-discount"
-             role="link"
-             type="button"
-              >
-              Checkout
-              </button>
-          </li>
-      </ul>
 
     </div>
   </article>
@@ -153,74 +97,6 @@
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
       lineItems: [{price: 'price_1IKlUVBumtXfaUUqhhPgyHXS', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-160-train-regular');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlUVBumtXfaUUqdr66WvNv', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-80-train-discount');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlUVBumtXfaUUqHg3boqeb', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-280-both-regular');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlUVBumtXfaUUq3vvfLknL', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-130-both-discount');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlUVBumtXfaUUqpcZRXyxy', quantity: 1}],
       mode: 'payment',
       successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
       cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
