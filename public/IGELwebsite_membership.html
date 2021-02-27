@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.69.2" />
+
+
+<title>IGEL2021 registration</title>
+<meta property="og:title" content="IGEL2021 registration">
+<meta property="og:type" content="website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+<meta property="description" content="IGEL2021 registration">
+
+
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="A Hugo website" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+</nav>
+
+      </header>
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+
+
+    <h1 class="article-title">IGEL membership</h1>
+
+    <div class="article-content">
+      
+    <p>You can read more about becoming an IGEL member <a href = "https://sites.google.com/igelassoc.org/igel2018/igel-membership?authuser=0#h.p_iClEZShMxJ4m">here.</a></p>
+    <h2>IGEL membership with yearly<b style="color:#479232">automatic renewal</b> </h2>
+      <ul>
+          <li>
+            EUR 60  // <b style="color:#479232">Regular</b> member (professor, researcher, member of institution)
+            <br>
+            We will notify you every year before renewal, so you can change your payment method or cancel your membership.
+            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
+            <button
+             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
+             id="checkout-button-60-recurring-regular"
+             role="link"
+             type="button"
+              >
+              Checkout
+              </button>
+          </li>
+          </ul>
+          
+      <h2><b style="color:#479232">1 year</b> IGEL membership</h2>
+      <ul>
+          <li>
+            EUR 70  // <b style="color:#479232">Regular</b> member (professor, researcher, member of institution)
+            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
+            <button
+             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
+             id="checkout-button-70-1year-regular"
+             role="link"
+             type="button"
+              >
+              Checkout
+              </button>
+          </li>
+          <li>
+            EUR 50 // <b style="color:#479232">Discount</b> member (student, retiree, and other without regular income)
+            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
+            <button
+             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
+             id="checkout-button-50-1year-discount"
+             role="link"
+             type="button"
+              >
+              Checkout
+              </button>
+          </li>
+          </ul>
+          
+          <h2><b style="color:#479232">2 years</b> IGEL membership </h2>
+          <ul>
+          <li>
+            EUR 120  // Paid <b style="color:#479232">Regular</b> member (professor, researcher, member of institution)
+            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
+            <button
+             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
+             id="checkout-button-120-2years-regular"
+             role="link"
+             type="button"
+              >
+              Checkout
+              </button>
+          </li>
+          <li>
+            EUR 80 // <b style="color:#479232">Discount</b> member (student, retiree, and other without regular income)
+            <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
+            <button
+             style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
+             id="checkout-button-80-2years-discount"
+             role="link"
+             type="button"
+              >
+              Checkout
+              </button>
+          </li>
+      </ul>
+
+    </div>
+  </article>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
+
+  var checkoutButton = document.getElementById('checkout-button-60-recurring-regular');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IPbqhBumtXfaUUqnXv8qUah', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
+      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-70-1year-regular');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IPbqhBumtXfaUUqItC9JtJT', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
+      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-50-1year-discount');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IPbqhBumtXfaUUqelR5Ax68', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
+      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-120-2years-regular');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IPbqhBumtXfaUUqa0HJG3bV', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
+      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+  var checkoutButton = document.getElementById('checkout-button-80-2years-discount');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1IPbqhBumtXfaUUq1ZmhnU4Y', quantity: 1}],
+      mode: 'payment',
+      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
+      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
+      billingAddressCollection: 'required',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+  
+})();
+</script>
+
+</main>
+  <footer class="footer">
+  
+      </footer>
+
+    </div>
+  </body>
+</html>
+
