@@ -56,12 +56,10 @@
     <div class="article-content">
       
     <p>You can read more about becoming an IGEL member <a href = "https://sites.google.com/igelassoc.org/igel2018/igel-membership?authuser=0#h.p_iClEZShMxJ4m">here.</a></p>
-    <h2>IGEL membership with yearly<b style="color:#479232">automatic renewal</b> </h2>
+    <h2>IGEL membership with yearly<b style="color:#479232"> automatic renewal</b> </h2>
       <ul>
           <li>
             EUR 60  // <b style="color:#479232">Regular</b> member (professor, researcher, member of institution)
-            <br>
-            We will notify you every year before renewal, so you can change your payment method or cancel your membership.
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -71,6 +69,8 @@
               >
               Checkout
               </button>
+              <br>
+            We will notify you every year before renewal, so you can change your payment method or cancel your membership.
           </li>
           </ul>
           
@@ -147,7 +147,7 @@
      */
     stripe.redirectToCheckout({
       lineItems: [{price: 'price_1IPbqhBumtXfaUUqnXv8qUah', quantity: 1}],
-      mode: 'payment',
+      mode: 'subscription',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling
        * purchases, customers may not always reach the success_url after
