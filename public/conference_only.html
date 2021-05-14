@@ -21,13 +21,11 @@
     
     <h1 class="article-title">Conference fee for IGEL members</h1>
 
-    <h3>Early bird rates (valid until April 30, 2021)</h3>
-
     <div class="article-content">
-      <h2>Conference only (early bird)</h2>
+      <h2>Conference only</h2>
       <ul>
           <li>
-            EUR 120 // Paid <b style="color:#479232">regular</b> IGEL members (professors, researchers, members of institutions)
+            EUR 160 // Paid <b style="color:#479232">regular</b> IGEL members (professors, researchers, members of institutions)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -39,7 +37,7 @@
               </button>
           </li>
           <li>
-            EUR 50 // Paid <b style="color:#479232">discount</b> IGEL members (students, retirees, and others without regular income)
+            EUR 70 // Paid <b style="color:#479232">discount</b> IGEL members (students, retirees, and others without regular income)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -68,7 +66,7 @@
      * them to Checkout.
      */
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlUVBumtXfaUUqAeafGcNA', quantity: 1}],
+      lineItems: [{price: 'price_1Ir0ABBumtXfaUUqMqeqyQJa', quantity: 1}],
       mode: 'payment',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling
@@ -96,7 +94,7 @@
   var checkoutButton = document.getElementById('checkout-button-50-conf-discount');
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlUVBumtXfaUUqhhPgyHXS', quantity: 1}],
+      lineItems: [{price: 'price_1Ir07RBumtXfaUUqXlEqloim', quantity: 1}],
       mode: 'payment',
       successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
       cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',

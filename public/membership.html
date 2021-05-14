@@ -22,15 +22,13 @@
 
     <h1 class="article-title">IGEL membership + Conference fee</h1>
 
-    <h3>Early bird rates (valid until April 30, 2021)</h3>
-
     <div class="article-content">
       
     <p>You can read more about becoming an IGEL member <a href = "https://sites.google.com/igelassoc.org/igel2018/igel-membership?authuser=0#h.p_iClEZShMxJ4m">here.</a></p>
-      <h2><b style="color:#479232">1 year</b> IGEL membership + Conference only (early bird)</h2>
+      <h2><b style="color:#479232">1 year</b> IGEL membership + Conference only </h2>
       <ul>
           <li>
-            EUR 190 (70 membership + 120 conference)  // Paid <b style="color:#479232">regular</b> IGEL members (professors, researchers, members of institutions)
+            EUR 230 (70 membership + 160 conference)  // Paid <b style="color:#479232">regular</b> IGEL members (professors, researchers, members of institutions)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -42,7 +40,7 @@
               </button>
           </li>
           <li>
-            EUR 100 (50 membership + 50 conference) // Paid <b style="color:#479232">discount</b> IGEL members (students, retirees, and others without regular income)
+            EUR 120 (50 membership + 70 conference) // Paid <b style="color:#479232">discount</b> IGEL members (students, retirees, and others without regular income)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -55,10 +53,10 @@
           </li>
           </ul>
           
-          <h2><b style="color:#479232">2 years</b> IGEL membership + Conference only (early bird)</h2>
+          <h2><b style="color:#479232">2 years</b> IGEL membership + Conference only </h2>
           <ul>
           <li>
-            EUR 240 (120 membership + 120 conference)  // Paid <b style="color:#479232">regular</b> IGEL members (professors, researchers, members of institutions)
+            EUR 280 (120 membership + 160 conference)  // Paid <b style="color:#479232">regular</b> IGEL members (professors, researchers, members of institutions)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -70,7 +68,7 @@
               </button>
           </li>
           <li>
-            EUR 130 (80 membership + 50 conference) // Paid <b style="color:#479232">discount</b> IGEL members (students, retirees, and others without regular income)
+            EUR 150 (80 membership + 70 conference) // Paid <b style="color:#479232">discount</b> IGEL members (students, retirees, and others without regular income)
             <!-- Create a button that your customers click to complete their purchase.               Customize the styling to suit your branding. -->
             <button
              style="background-color:#479232;color:#FFF;padding:8px 12px;border:0                    ;border-radius:4px;font-size:1em"
@@ -99,7 +97,7 @@
      * them to Checkout.
      */
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlbgBumtXfaUUqoBJ6FegU', quantity: 1}],
+      lineItems: [{price: 'price_1Ir0DiBumtXfaUUq38WWn3yz', quantity: 1}],
       mode: 'payment',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling
@@ -127,7 +125,7 @@
   var checkoutButton = document.getElementById('checkout-button-100-1year-discount');
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlbgBumtXfaUUqiMFjGy1s', quantity: 1}],
+      lineItems: [{price: 'price_1Ir0GeBumtXfaUUq2Gpsyryc', quantity: 1}],
       mode: 'payment',
       successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
       cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
@@ -144,7 +142,7 @@
   var checkoutButton = document.getElementById('checkout-button-240-2years-regular');
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlbgBumtXfaUUqkDMp30ZT', quantity: 1}],
+      lineItems: [{price: 'price_1Ir0IUBumtXfaUUqsslJeABJ', quantity: 1}],
       mode: 'payment',
       successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
       cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
@@ -161,7 +159,7 @@
   var checkoutButton = document.getElementById('checkout-button-130-1year-discount');
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IKlbgBumtXfaUUq5Bv32c5c', quantity: 1}],
+      lineItems: [{price: 'price_1Ir0JxBumtXfaUUqY60IIrDE', quantity: 1}],
       mode: 'payment',
       successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/success.html',
       cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/canceled.html',
