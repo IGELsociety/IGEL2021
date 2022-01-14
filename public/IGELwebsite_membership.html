@@ -25,10 +25,6 @@
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 
-<!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
-
-
   </head>
   <body>
     <div class="wrapper">
@@ -55,7 +51,7 @@
 
     <div class="article-content">
       
-    <p>You can read more about becoming an IGEL member <a href = "https://sites.google.com/igelassoc.org/igel2018/igel-membership?authuser=0#h.p_iClEZShMxJ4m">here.</a></p>
+    <p>You can read more about becoming an IGEL member <a href = "https://igelsociety.org/member/">here.</a></p>
     <h2>IGEL membership with yearly<b style="color:#479232"> automatic renewal</b> </h2>
       <ul>
           <li>
@@ -67,7 +63,7 @@
              role="link"
              type="button"
               >
-              Checkout
+              <a href = "https://buy.stripe.com/eVadSXduR2PGcUM288">Checkout</a>
               </button>
               <br>
             We will notify you every year before renewal, so you can change your payment method or cancel your membership.
@@ -85,7 +81,7 @@
              role="link"
              type="button"
               >
-              Checkout
+              <a href = "https://buy.stripe.com/dR602762pbmcf2U7st">Checkout</a>
               </button>
           </li>
           <li>
@@ -97,7 +93,7 @@
              role="link"
              type="button"
               >
-              Checkout
+              <a href = "https://buy.stripe.com/dR616b9eBbmc1c44gi">Checkout</a>
               </button>
           </li>
           </ul>
@@ -113,7 +109,7 @@
              role="link"
              type="button"
               >
-              Checkout
+              <a href = "https://buy.stripe.com/aEU8yD76t2PG2g8aEH">Checkout</a>
               </button>
           </li>
           <li>
@@ -125,7 +121,7 @@
              role="link"
              type="button"
               >
-              Checkout
+              <a href = "https://buy.stripe.com/3cs4in4Yleyo6wo28c">Checkout</a>
               </button>
           </li>
       </ul>
@@ -135,112 +131,6 @@
 
 <div id="error-message"></div>
 
-<script>
-(function() {
-  var stripe = Stripe('pk_live_51IHHGtBumtXfaUUqPp5k2egoxq4VkfLyjQhi8bpMZCA3982yYQXvw7vBRJzsY7GzOIMGWlJ0jpCR8AuJAhga9h0i00RtaLgNwc');
-
-  var checkoutButton = document.getElementById('checkout-button-60-recurring-regular');
-  checkoutButton.addEventListener('click', function () {
-    /*
-     * When the customer clicks on the button, redirect
-     * them to Checkout.
-     */
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IPbqhBumtXfaUUqnXv8qUah', quantity: 1}],
-      mode: 'subscription',
-      /*
-       * Do not rely on the redirect to the successUrl for fulfilling
-       * purchases, customers may not always reach the success_url after
-       * a successful payment.
-       * Instead use one of the strategies described in
-       * https://stripe.com/docs/payments/checkout/fulfill-orders
-       */
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        /*
-         * If `redirectToCheckout` fails due to a browser or network
-         * error, display the localized error message to your customer.
-         */
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-70-1year-regular');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IPbqhBumtXfaUUqItC9JtJT', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-50-1year-discount');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IPbqhBumtXfaUUqelR5Ax68', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-120-2years-regular');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IPbqhBumtXfaUUqa0HJG3bV', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-  var checkoutButton = document.getElementById('checkout-button-80-2years-discount');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1IPbqhBumtXfaUUq1ZmhnU4Y', quantity: 1}],
-      mode: 'payment',
-      successUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_success.html',
-      cancelUrl: window.location.protocol + '//igelsocietyregistration.netlify.app/membership_canceled.html',
-      billingAddressCollection: 'required',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-  
-})();
-</script>
 
 </main>
   <footer class="footer">
